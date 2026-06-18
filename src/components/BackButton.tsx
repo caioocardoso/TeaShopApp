@@ -15,7 +15,7 @@ export default BackButton
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: '#eaf3f8',
+        backgroundColor: '#F4EDE4',
         height: s(32),
         width: s(32),
         borderRadius: s(16),

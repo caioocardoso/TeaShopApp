@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { s, vs } from "react-native-size-matters";
@@ -7,12 +7,13 @@ import Entypo from '@expo/vector-icons/Entypo';
 interface PayMethodCard {
     title: string,
     icon: React.ReactNode,
-    isSelected: Boolean
+    isSelected: Boolean,
+    onPress?: () => void
 }
 
-const PayMethodCard = ({ title, icon, isSelected = false }) => {
+const PayMethodCard = ({ title, icon, isSelected = false, onPress }) => {
   return (
-    <View style={{ width: s(95), marginEnd: s(8) }}>
+    <TouchableOpacity onPress={onPress} style={{ width: s(90) }}>
       {isSelected && (
         <View style={styles.checkmarkContainer}>
           <Entypo name="check" size={s(12)} color="white" />
@@ -22,7 +23,7 @@ const PayMethodCard = ({ title, icon, isSelected = false }) => {
         {icon}
       </View>
       <Text style={styles.label}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -30,8 +31,8 @@ export default PayMethodCard;
 
 const styles = StyleSheet.create({
   card: {
-    height: vs(82),
-    width: s(95),
+    height: vs(75),
+    width: s(90),
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
@@ -44,12 +45,12 @@ const styles = StyleSheet.create({
     marginTop: vs(4),
   },
   selectedCardStyle: {
-    height: vs(82),
-    width: s(95),
+    height: vs(75),
+    width: s(90),
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#FDFBF7",
     borderWidth: s(2),
     borderColor: "#4A5D4E",
   },
